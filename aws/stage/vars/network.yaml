@@ -1,0 +1,16 @@
+vpc:
+  cidr: "10.10.0.0/16"
+  tags:
+    Name: "stage-vpc"
+    Environment: "stage"
+subnets:
+  app_subnet:
+    cidr_block: "10.10.1.0/24"
+    availability_zone: "us-east-1a" # Specify AZ
+    tags:
+      Name: "stage-app-subnet"
+  db_subnet:
+    cidr_block: "10.10.2.0/24"
+    availability_zone: "us-east-1b" # Specify AZ
+    tags:
+      Name: "stage-db-subnet"

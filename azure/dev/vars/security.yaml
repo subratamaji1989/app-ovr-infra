@@ -1,0 +1,29 @@
+# Variables for Network Security Groups (NSGs) and their rules
+
+nsgs:
+  app_nsg:
+    name: "dev-app-nsg"
+    # These rules will be applied to the application subnet.
+    rules:
+      - name: "Allow_SSH_Inbound"
+        priority: 100
+        direction: "Inbound"
+        access: "Allow"
+        protocol: "Tcp"
+        source_port_range: "*"
+        destination_port_range: "22"
+        source_address_prefix: "YOUR_BASTION_OR_VPN_IP_RANGE" # In production, lock this down to a specific IP range
+        destination_address_prefix: "*"
+      - name: "Allow_Web_Inbound"
+        priority: 200
+        direction: "Inbound"
+        access: "Allow"
+        protocol: "Tcp"
+        source_port_range: "*"
+        destination_port_range: "80"
+        source_address_prefix: "Internet" # Allow traffic from the internet to the App Gateway
+        destination_address_prefix: "*"
+
+# Note: The association of these NSGs to specific subnets
+# will be handled within the Terraform composition logic.
+# The AKS subnet typically has its own NSG managed by the AKS service itself.

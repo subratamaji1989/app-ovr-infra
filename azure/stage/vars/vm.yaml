@@ -1,0 +1,14 @@
+vms:
+  - name: ecom-app-01
+    subnet: app
+    size: t3.medium
+    image:
+      id: ami-0abcdef1234567890
+  - name: ecom-app-02
+    subnet: app
+    size: t3.medium
+  - name: ecom-app-03
+    subnet: app
+    size: t3.large
+    image:
+      id: ami-0abcdef1234567890

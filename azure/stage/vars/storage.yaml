@@ -1,0 +1,21 @@
+vpc:
+  bucket_name: "my-app-storage-bucket"
+  tags:
+    env: dev
+    project: ecom
+lifecycle:
+  prevent_destroy: true
+  rules:
+    - id: "log"
+      status: "Enabled"
+      filter:
+        prefix: "logs/"
+      expiration:
+        days: 30
+    - id: "archive"
+      status: "Enabled"
+      filter:
+        prefix: "archive/"
+      transition:
+        - days: 60
+          storage_class: "GLACIER"

@@ -1,0 +1,39 @@
+# Defines the load balancer and its target groups.
+
+# Load Balancer Configuration
+load_balancer:
+  name: "dev-app-lb"
+  security_groups: ["lb_sg"] # Logical name of the security group from security.yaml
+  subnet_keys:
+    - "app_subnet" # This must match a key in network.yaml
+  tags:
+    Name: "dev-app-lb"
+    Environment: "dev"
+  listeners:
+    http_listener: # A logical name for this listener
+      port: 80
+      protocol: "HTTP"
+      # Define the target group and its instances directly under the listener
+      target_group:
+        name: "dev-app-http-tg"
+        port: 8080 # The port the application runs on.
+        health_check:
+          path: "/actuator/health"
+        # Define the instances that belong to this target group
+        instances:
+          app_server_1: # Logical name for the instance
+            instance_type: "t3.medium"
+            ami: "ami-0c55b159cbfafe1f0"
+    # Example of a second listener for a different service
+    # http_api_listener:
+    #   port: 8081
+    #   protocol: "HTTP"
+    #   target_group:
+    #     name: "dev-api-http-tg"
+    #     port: 9090
+    #     health_check:
+    #       path: "/ping"
+    #     instances:
+    #       api_server_1:
+    #         instance_type: "t3.small"
+    #         ami: "ami-0c55b159cbfafe1f0"

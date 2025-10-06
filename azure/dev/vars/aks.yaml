@@ -1,0 +1,18 @@
+# Variables for the Azure Kubernetes Service (AKS) cluster
+cluster:
+  name: "dev-aks-cluster"
+  kubernetes_version: "1.28.5"
+  node_pools:
+    general_purpose:
+      name: "gpool" # Must be lowercase and alphanumeric
+      vm_size: "Standard_D2s_v3"
+      node_count: 2
+      min_count: 1
+      max_count: 3
+      enable_auto_scaling: true
+
+# Tags to apply to all resources for tracking and cost management
+tags:
+  Environment: "dev"
+  ManagedBy: "Terraform"
+  Project: "Project1-IAC"

@@ -1,0 +1,11 @@
+# Variables for the Azure Application Gateway (L7 Load Balancer)
+app_gateway:
+  name: "dev-app-gateway"
+  sku:
+    name: "WAF_v2"
+    tier: "WAF_v2"
+    capacity: 2
+  # The gateway will be associated with the 'app_subnet' defined in network.yaml
+  # The specific subnet association will be handled in the Terraform composition.
+  frontend_port: 80
+  backend_port: 8080
