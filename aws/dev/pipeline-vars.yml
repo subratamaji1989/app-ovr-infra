@@ -2,13 +2,13 @@
 # The buildspec.yml reads this file to configure its execution environment.
 pipeline-parameters:
   # -- Pipeline Stage Control --
-  PIPELINE_STAGE: "VALIDATE"       # "VALIDATE" | "PLAN" | "APPLY" | "POST_VALIDATE"
+  PIPELINE_STAGE: "PLAN"       # "VALIDATE" | "PLAN" | "APPLY" | "POST_VALIDATE"
 
   # -- Path Configuration --
-  COMPOSITION_PATH: "terraform-platform/aws/infra-stack/vm-stack"
-  VARS_PATH: "app-ovr-infra/aws/dev/vars"
-  BACKEND_CONFIG_PATH: "app-ovr-infra/aws/dev/backend.tf"
-  SCHEMA_PATH: "terraform-platform/aws/schemas/vm.schema.json"
+  COMPOSITION_PATH: "aws/infra-stack/vm-stack"
+  VARS_PATH: "../app-ovr-infra/aws/dev/vars"
+  BACKEND_CONFIG_PATH: "../app-ovr-infra/aws/dev/backend.tf"
+  SCHEMA_PATH: "aws/schemas/vm.schema.json"
   MAIN_YAML_FILE: "vm.yaml"
 
   # -- Tool Versioning --
