@@ -18,7 +18,7 @@ load_balancer:
         name: "dev-app-http-tg"
         port: 8080 # The port the application runs on.
         health_check:
-          path: "/actuator/health"
+          path: "/"
         # Define the instances that belong to this target group
         instances:
           app_server_1: # Logical name for the instance
