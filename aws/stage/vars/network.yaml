@@ -1,16 +1,18 @@
 vpc:
-  cidr: "10.10.0.0/16"
+  cidr: "10.10.0.0/16" # Mandatory: The CIDR block for the VPC.
   tags:
-    Name: "stage-vpc"
-    Environment: "stage"
+    Name: "ovr-vpc"
+    Environment: "ovr"
 subnets:
   app_subnet:
     cidr_block: "10.10.1.0/24"
-    availability_zone: "us-east-1a" # Specify AZ
+    # Change this from us-east-1a
+    availability_zone: "ap-south-1a" 
     tags:
-      Name: "stage-app-subnet"
+      Name: "dev-app-subnet"
   db_subnet:
     cidr_block: "10.10.2.0/24"
-    availability_zone: "us-east-1b" # Specify AZ
+    # Change this from us-east-1b
+    availability_zone: "ap-south-1b"
     tags:
-      Name: "stage-db-subnet"
+      Name: "dev-db-subnet"

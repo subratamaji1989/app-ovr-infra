@@ -1,6 +1,6 @@
 # Variables for the virtual network and subnets
 vnet:
-  name: "dev-vnet"
+  name: "ovr-vnet"
   address_space: ["10.20.0.0/16"]
 
 subnets:

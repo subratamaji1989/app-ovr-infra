@@ -1,19 +1,25 @@
-vpc:
-  name: ecom-load-balancer
-  subnets:
-    - name: public-subnet-1
-      cidr: "10.10.1.0/24"
-      availability_zone: "us-east-2a"
-    - name: public-subnet-2
-      cidr: "10.10.2.0/24"
-      availability_zone: "us-east-2b"
-  security_groups:
-    - name: lb-sg
-      description: "Security group for the load balancer"
-      inbound_rules:
-        - protocol: tcp
-          port: 80
-          source: "0.0.0.0/0"
-        - protocol: tcp
-          port: 443
-          source: "0.0.0.0/0"
+# Variables for the Azure Load Balancer (L4)
+load_balancers:
+  ovr_lb:
+    name: "ovr-app-lb"
+    sku: "Standard"
+    frontend_ip_configurations:
+      - name: "PublicIP"
+        public_ip_address: true
+    rules:
+      - name: "HTTPRule"
+        protocol: "Tcp"
+        frontend_port: 80
+        backend_port: 8080
+
+  # stage_lb:
+  #   name: "stage-app-lb"
+  #   sku: "Standard"
+  #   frontend_ip_configurations:
+  #     - name: "PublicIP"
+  #       public_ip_address: true
+  #   rules:
+  #     - name: "HTTPRule"
+  #       protocol: "Tcp"
+  #       frontend_port: 80
+  #       backend_port: 8080

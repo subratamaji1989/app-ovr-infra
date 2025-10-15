@@ -1,3 +1,0 @@
-# SSH public key for accessing virtual machines.
-# Replace this with your actual public SSH key.
-admin_public_key: "ssh-rsa AAAA..."

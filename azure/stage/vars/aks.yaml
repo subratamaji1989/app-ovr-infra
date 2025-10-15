@@ -1,7 +1,7 @@
 # Variables for the Azure Kubernetes Service (AKS) cluster
 cluster:
-  name: "dev-aks-cluster" # Using a single name for the cluster
-  kubernetes_version: "1.29.2" # Updated to a valid and supported version
+  name: "stage-aks-cluster" # Using a single name for the cluster
+  kubernetes_version: "1.33"
   default_node_pool:
     vm_size: "standard_a2m_v2"
     node_count: 1
@@ -18,6 +18,6 @@ cluster:
 
 # Tags to apply to all resources for tracking and cost management
 tags:
-  Environment: "dev"
+  Environment: "stage"
   ManagedBy: "Terraform"
   Project: "Project1-IAC"

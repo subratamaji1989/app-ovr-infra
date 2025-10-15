@@ -1,7 +1,7 @@
 # Variables for Network Security Groups (NSGs) and their rules
 nsgs:
   app_nsg:
-    name: "dev-app-nsg"
+    name: "stage-app-nsg"
     # These rules will be applied to the application subnet.
     rules:
       - name: "Allow_SSH_Inbound"
