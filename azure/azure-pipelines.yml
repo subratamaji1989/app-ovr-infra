@@ -30,6 +30,7 @@ resources:
   - repository: platform # An alias for the terraform-platform repository
     type: github # or git, azuredevops, etc.
     name: subratamaji1989/terraform-platform
+    endpoint: Azure-Devops-Federated # <--- Add this line, replace with your Service Connection name
     ref: main # Or a specific release tag like 'refs/tags/v1.2.0'
 
 # You can define different parameters for different environments if needed,

@@ -3,7 +3,7 @@ terraform {
     bucket         = "ovr-tf-s3"
     key            = "app-ovr-infra/dev/terraform.tfstate"
     region         = "ap-south-1"
-    # dynamodb_table = "terraform-locks"
+    use_lockfile   = true
     encrypt        = true
   }
 }

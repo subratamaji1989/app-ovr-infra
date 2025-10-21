@@ -7,7 +7,7 @@ load_balancer:
     - lb_sg # Logical name of the security group from security.yaml
   subnet_keys:
     - app_subnet
-    - db_subnet
+    - aks_subnet
   tags:
     Name: "ovr-app-lb"
     Environment: "ovr"
